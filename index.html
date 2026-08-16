@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17324d">
+<title>Bengkel Bahasa — Online</title>
+<style>
+:root{--navy:#17324d;--sage:#8fae9a;--bg:#f4f7f5;--card:#fff;--text:#203040;--muted:#71808d;--green:#2f8f63;--yellow:#d99a22;--red:#c94b4b;--blue:#3978b8;--line:#e4e9e6;--shadow:0 8px 24px #17324d12}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{border:0;cursor:pointer}.app{min-height:100vh}.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 3px 14px #0002}.brand{font-weight:800;font-size:19px}.brand small{display:block;font-size:11px;font-weight:500;opacity:.75}.top-actions{display:flex;gap:7px}.iconbtn{background:#ffffff18;color:#fff;padding:9px 11px;border-radius:10px}.layout{display:flex;max-width:1400px;margin:auto}.side{width:230px;padding:18px 12px;position:sticky;top:65px;height:calc(100vh - 65px);background:#fff;border-right:1px solid var(--line)}.nav{display:flex;flex-direction:column;gap:5px}.nav button{background:transparent;text-align:left;padding:12px;border-radius:11px;color:var(--text)}.nav button.active,.nav button:hover{background:#eaf2ed;color:var(--green);font-weight:700}.main{flex:1;padding:20px;min-width:0}.page{display:none}.page.active{display:block}.title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.title h1{margin:0;font-size:24px}.subtitle{color:var(--muted);font-size:13px;margin-top:4px}.btn{padding:10px 14px;border-radius:10px;background:var(--navy);color:#fff;font-weight:700}.btn.green{background:var(--green)}.btn.light{background:#eaf2ed;color:var(--green)}.btn.red{background:var(--red)}.btn.gray{background:#edf0f1;color:#344}.btn.small{padding:7px 9px;font-size:12px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.stat .label{font-size:12px;color:var(--muted)}.stat .value{font-size:24px;font-weight:800;margin-top:5px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.search{flex:1;min-width:190px}.input,.select,.textarea{width:100%;border:1px solid #d7dfda;border-radius:10px;padding:10px 11px;background:#fff;color:var(--text);outline:none}.input:focus,.select:focus,.textarea:focus{border-color:var(--sage);box-shadow:0 0 0 3px #8fae9a25}.tablewrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px}.table{width:100%;border-collapse:collapse;min-width:760px}.table th,.table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}.table th{background:#f7f9f8;color:#5d6b75;font-size:11px;text-transform:uppercase;letter-spacing:.03em}.badge{display:inline-block;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:800}.paid{background:#e2f4e9;color:#217448}.partial{background:#fff1d5;color:#95640e}.unpaid,.void{background:#fde5e5;color:#a23a3a}.present{background:#e2f4e9;color:#217448}.izin{background:#fff1d5;color:#95640e}.sakit{background:#e4effa;color:#2b6394}.alpa{background:#fde5e5;color:#a23a3a}.modal{position:fixed;inset:0;background:#0b1b2890;display:none;align-items:center;justify-content:center;padding:15px;z-index:50}.modal.show{display:flex}.modalbox{width:min(720px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;padding:18px;box-shadow:0 20px 60px #0004}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modalhead h2{margin:0;font-size:19px}.close{background:#eef1f2;border-radius:9px;padding:8px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;font-weight:700}.field.full{grid-column:1/-1}.modalfoot{display:flex;justify-content:flex-end;gap:8px;margin-top:15px}.invoice{background:#fff;padding:28px;border:1px solid #ddd;max-width:760px;margin:auto;color:#17222c}.invoice .ih{display:flex;justify-content:space-between;gap:20px;border-bottom:2px solid #17324d;padding-bottom:15px;margin-bottom:18px}.invoice h2{margin:0}.invoice table{width:100%;border-collapse:collapse;margin:15px 0}.invoice td,.invoice th{padding:8px;border-bottom:1px solid #ddd;text-align:left}.invoice .right{text-align:right}.invoice-actions{display:flex;justify-content:center;gap:8px;margin:15px auto;max-width:760px;flex-wrap:wrap}.chart{height:230px;display:flex;align-items:end;gap:8px;padding:15px 5px 5px;border-top:1px solid var(--line)}.bar{flex:1;min-width:12px;background:var(--sage);border-radius:7px 7px 2px 2px;position:relative}.bar span{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted)}.bar b{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9px;white-space:nowrap}.notice{padding:12px;border-radius:12px;background:#edf6f0;color:#286b49;font-size:13px}.empty{text-align:center;color:var(--muted);padding:30px}.bottom{display:none}.logo-box{width:48px;height:48px;border-radius:13px;background:#eaf2ed;display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:900}.setting-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.danger{color:var(--red)}@media(max-width:800px){.side{display:none}.main{padding:14px 12px 82px}.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.formgrid,.setting-row{grid-template-columns:1fr}.bottom{display:flex;position:fixed;bottom:0;left:0;right:0;height:64px;background:#fff;border-top:1px solid var(--line);z-index:30;justify-content:space-around;padding-bottom:env(safe-area-inset-bottom)}.bottom button{background:none;font-size:10px;color:#60707b;flex:1}.bottom button.active{color:var(--green);font-weight:800}.bottom span{display:block;font-size:19px}.top{padding:12px 13px}.title h1{font-size:21px}.table{min-width:700px}.invoice{padding:16px}.invoice .ih{display:block}.invoice .ih>div:last-child{margin-top:10px}.hide-mobile{display:none!important}}
+@media print{body{background:#fff}.top,.side,.bottom,.invoice-actions,.no-print{display:none!important}.main{padding:0}.page{display:none!important}.page#invoicePage{display:block!important}.invoice{border:0;box-shadow:none;max-width:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand">BENGKEL BAHASA<small>Learning & Administration</small></div><div class="top-actions"><span id="onlineStatus" class="iconbtn" title="Status database">☁️ Online</span><button class="iconbtn" onclick="go('settings')">⚙️</button></div></header>
+<div class="layout">
+<aside class="side"><nav class="nav">
+<button data-page="home" onclick="go('home')">🏠 Dashboard</button>
+<button data-page="students" onclick="go('students')">👨‍🎓 Siswa</button>
+<button data-page="classes" onclick="go('classes')">📚 Kelas</button>
+<button data-page="schedule" onclick="go('schedule')">📅 Jadwal</button>
+<button data-page="attendance" onclick="go('attendance')">✅ Absensi</button>
+<button data-page="payments" onclick="go('payments')">💰 Pembayaran</button>
+<button data-page="paymentSettings" onclick="go('paymentSettings')">⚙️ Pengaturan Pembayaran</button>
+<button data-page="invoices" onclick="go('invoices')">🧾 Invoice</button>
+<button data-page="reports" onclick="go('reports')">📊 Laporan</button>
+<button data-page="notes" onclick="go('notes')">📝 Catatan</button>
+<button data-page="settings" onclick="go('settings')">⚙️ Pengaturan</button>
+<button data-page="backup" onclick="go('backup')">💾 Backup</button>
+</nav></aside>
+<main class="main">
+<section id="home" class="page active"></section>
+<section id="students" class="page"></section>
+<section id="classes" class="page"></section>
+<section id="schedule" class="page"></section>
+<section id="attendance" class="page"></section>
+<section id="payments" class="page"></section>
+<section id="paymentSettings" class="page"></section>
+<section id="invoices" class="page"></section>
+<section id="reports" class="page"></section>
+<section id="notes" class="page"></section>
+<section id="settings" class="page"></section>
+<section id="backup" class="page"></section>
+<section id="invoicePage" class="page"></section>
+</main></div>
+<nav class="bottom">
+<button data-page="home" onclick="go('home')"><span>🏠</span>Home</button>
+<button data-page="students" onclick="go('students')"><span>👨‍🎓</span>Siswa</button>
+<button data-page="attendance" onclick="go('attendance')"><span>✅</span>Absensi</button>
+<button data-page="payments" onclick="go('payments')"><span>💰</span>Bayar</button>
+<button data-page="invoices" onclick="go('invoices')"><span>🧾</span>Invoice</button>
+</nav>
+</div>
+<div id="modal" class="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+
+<!-- Supabase REST (no external JS dependency) -->
+<script>
+const SUPABASE_URL = "https://gpasjpvgajlltrttbsbc.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwYXNqcHZnYWpsbHRydHRic2JjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3OTg1MTIsImV4cCI6MjEwMjM3NDUxMn0.vN1-2poUHP54nG7rE-GTspp5GSD46Gi-2DyvvcVP4gw";
+
+const TABLES = {
+  students:'students', classes:'classes', schedules:'schedules',
+  attendance:'attendance', payments:'payments', invoices:'invoices',
+  notes:'notes', settings:'settings'
+};
+
+const FIELD_MAP = {
+  students:{studentCode:'student_code',name:'name',nickname:'nickname',phone:'phone',
+    parentName:'parent_name',parentPhone:'parent_phone',school:'school',
+    schoolGrade:'school_grade',subject:'subject',level:'level',paymentType:'payment_type',
+    customPrice:'custom_price',defaultPrice:'default_price',startDate:'start_date',
+    status:'status',address:'address',notes:'notes',createdAt:'created_at'},
+  classes:{className:'class_name',teacher:'teacher',subject:'subject',level:'level',
+    day:'day',startTime:'start_time',endTime:'end_time',room:'room',capacity:'capacity',
+    createdAt:'created_at'},
+  schedules:{classId:'class_id',className:'class_name',subject:'subject',level:'level',
+    day:'day',startTime:'start_time',endTime:'end_time',room:'room',createdAt:'created_at'},
+  attendance:{date:'date',classId:'class_id',studentId:'student_id',
+    studentName:'student_name',className:'class_name',status:'status',notes:'notes'},
+  payments:{studentId:'student_id',studentName:'student_name',className:'class_name',
+    subject:'subject',level:'level',paymentType:'payment_type',periodStart:'period_start',
+    periodEnd:'period_end',meetingNumber:'meeting_number',quantity:'quantity',month:'month',
+    unitPrice:'unit_price',discount:'discount',total:'total',amountPaid:'amount_paid',remaining:'remaining',
+    method:'method',status:'status',date:'date',notes:'notes',createdAt:'created_at'},
+  invoices:{invoiceNumber:'invoice_number',paymentId:'payment_id',studentId:'student_id',
+    studentName:'student_name',subject:'subject',level:'level',paymentType:'payment_type',
+    periodStart:'period_start',periodEnd:'period_end',meetingNumber:'meeting_number',
+    quantity:'quantity',month:'month',date:'date',paymentDate:'payment_date',
+    unitPrice:'unit_price',subtotal:'subtotal',discount:'discount',total:'total',
+    amountPaid:'amount_paid',remainingAmount:'remaining_amount',method:'method',
+    status:'status',notes:'notes',createdAt:'created_at',voidReason:'void_reason'},
+  notes:{studentId:'student_id',date:'date',title:'title',content:'content'},
+  settings:{value:'value'}
+};
+
+function toDb(table,obj){
+  const map=FIELD_MAP[table]||{}, row={};
+  for(const [k,v] of Object.entries(obj||{})) row[map[k]||k]=v;
+  return row;
+}
+function fromDb(table,row){
+  const map=FIELD_MAP[table]||{};
+  const reverse=Object.fromEntries(Object.entries(map).map(([a,b])=>[b,a]));
+  const obj={};
+  for(const [k,v] of Object.entries(row||{})) obj[reverse[k]||k]=v;
+  return obj;
+}
+
+async function sbRequest(table, options={}){
+  const url = SUPABASE_URL + "/rest/v1/" + encodeURIComponent(TABLES[table]||table);
+  const headers = {
+    "apikey": SUPABASE_KEY,
+    "Authorization": "Bearer " + SUPABASE_KEY,
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    ...(options.headers||{})
+  };
+  const response = await fetch(url, {...options, headers});
+  const text = await response.text();
+  let data = null;
+  try { data = text ? JSON.parse(text) : null; } catch {}
+  if(!response.ok){
+    const msg = data?.message || data?.hint || data?.details || text || response.statusText;
+    throw new Error(`Supabase ${response.status}: ${msg}`);
+  }
+  return data;
+}
+
+async function all(table){
+  const base = SUPABASE_URL + "/rest/v1/" + encodeURIComponent(TABLES[table]||table);
+  const url = base + "?select=*";
+  const headers = {
+    "apikey": SUPABASE_KEY,
+    "Authorization": "Bearer " + SUPABASE_KEY,
+    "Accept": "application/json",
+    "Cache-Control": "no-cache",
+    "Pragma": "no-cache"
+  };
+  const response = await fetch(url,{method:"GET",headers,cache:"no-store"});
+  const text = await response.text();
+  let data=null; try{data=text?JSON.parse(text):null}catch{}
+  if(!response.ok){
+    const msg=data?.message||data?.hint||data?.details||text||response.statusText;
+    throw new Error(`Supabase ${response.status}: ${msg}`);
+  }
+  return (data||[]).map(x=>fromDb(table,x));
+}
+
+async function put(table,obj){
+  const row=toDb(table,obj);
+  const tableName=TABLES[table]||table;
+  const base=SUPABASE_URL+"/rest/v1/"+encodeURIComponent(tableName);
+  const headers={
+    "apikey":SUPABASE_KEY,
+    "Authorization":"Bearer "+SUPABASE_KEY,
+    "Content-Type":"application/json",
+    "Accept":"application/json"
+  };
+
+  // The app generates an ID for both new and existing records.
+  // Therefore, first check whether that ID already exists.
+  if(obj && obj.id){
+    const checkResponse=await fetch(base+"?id=eq."+encodeURIComponent(String(obj.id))+"&select=id",{
+      method:"GET",
+      headers
+    });
+    const checkText=await checkResponse.text();
+    let checkData=null; try{checkData=checkText?JSON.parse(checkText):null}catch{}
+    if(!checkResponse.ok){
+      const msg=checkData?.message||checkData?.hint||checkData?.details||checkText||checkResponse.statusText;
+      throw new Error(`Supabase CHECK ${checkResponse.status}: ${msg}`);
+    }
+
+    const exists=Array.isArray(checkData) && checkData.length>0;
+
+    if(exists){
+      console.log("[Supabase] UPDATE",tableName,"id=",obj.id,row);
+      const response=await fetch(base+"?id=eq."+encodeURIComponent(String(obj.id)),{
+        method:"PATCH",
+        headers:{...headers,"Prefer":"return=representation"},
+        body:JSON.stringify(row)
+      });
+      const text=await response.text();
+      let data=null; try{data=text?JSON.parse(text):null}catch{}
+      if(!response.ok){
+        const msg=data?.message||data?.hint||data?.details||text||response.statusText;
+        throw new Error(`Supabase UPDATE ${response.status}: ${msg}`);
+      }
+      if(Array.isArray(data) && data.length) return fromDb(table,data[0]);
+      return fromDb(table,row);
+    }
+  }
+
+  console.log("[Supabase] INSERT",tableName,row);
+  const response=await fetch(base,{
+    method:"POST",
+    headers:{...headers,"Prefer":"return=representation"},
+    body:JSON.stringify(row)
+  });
+  const text=await response.text();
+  let data=null; try{data=text?JSON.parse(text):null}catch{}
+  if(!response.ok){
+    const msg=data?.message||data?.hint||data?.details||text||response.statusText;
+    throw new Error(`Supabase INSERT ${response.status}: ${msg}`);
+  }
+  return fromDb(table,(data||[])[0]||row);
+}
+async function del(table,id){
+  await sbRequest(table,{
+    method:"DELETE",
+    headers:{"Prefer":"return=minimal"},
+    body:undefined
+  });
+  // Supabase REST requires the filter in the URL; the request above is replaced
+  // below by a filtered DELETE for compatibility.
+}
+
+async function deleteRow(table,id){
+  const url=SUPABASE_URL+"/rest/v1/"+encodeURIComponent(TABLES[table]||table)+"?id=eq."+encodeURIComponent(String(id));
+  console.log("[Supabase] DELETE",TABLES[table]||table,"id=",id);
+  const response=await fetch(url,{
+    method:"DELETE",
+    headers:{
+      "apikey":SUPABASE_KEY,
+      "Authorization":"Bearer "+SUPABASE_KEY,
+      "Accept":"application/json",
+      "Prefer":"return=representation"
+    },
+    cache:"no-store"
+  });
+  const text=await response.text();
+  let data=null; try{data=text?JSON.parse(text):null}catch{}
+  if(!response.ok){
+    const msg=data?.message||data?.hint||data?.details||text||response.statusText;
+    throw new Error(`Supabase DELETE ${response.status}: ${msg}`);
+  }
+  console.log("[Supabase] DELETE RESULT",data);
+  if(!Array.isArray(data) || data.length===0){
+    throw new Error("Supabase tidak menghapus baris. Kemungkinan ID tidak cocok atau policy DELETE/RLS belum mengizinkan penghapusan.");
+  }
+  return data.map(x=>fromDb(table,x));
+}
+
+// Keep the application's existing del() calls working.
+async function del(table,id){ return deleteRow(table,id); }
+
+async function setting(k,def=''){
+  const a=await all('settings');
+  const x=a.find(i=>i.id===k);
+  return x ? x.value : def;
+}
+async function setSetting(k,v){ await put('settings',{id:k,value:v}); }
+
+async function openDB(){ return true; }
+
+async function supabaseHealthCheck(){
+  try{
+    const data=await sbRequest('students',{method:'GET',headers:{'Range':'0-0'}});
+    console.log("Bengkel Bahasa: Supabase terhubung.",data);
+    const el=document.getElementById("onlineStatus");
+    if(el) el.textContent="☁️ Online";
+    return true;
+  }catch(e){
+    console.error("Bengkel Bahasa: koneksi Supabase gagal.",e);
+    const el=document.getElementById("onlineStatus");
+    if(el){el.textContent="⚠️ Supabase";el.title=e.message;}
+    setTimeout(()=>{if(typeof toast==='function')toast("Supabase belum dapat diakses: "+e.message);},800);
+    return false;
+  }
+}
+</script>
+
+
+<script>
+const stores=['students','classes','schedules','attendance','payments','invoices','notes','settings'];
+let currentInvoice=null, state={search:'',invoiceSearch:'',attendanceDate:today(),attendanceClass:''};
+const subjects=['Bahasa Inggris','Fisika Dasar','Kimia Dasar','Matematika Dasar'];
+const levels=['Beginner','Intermediate','Advance'];
+const paymentTypes=['Per Meeting','Per Minggu','Per Bulan'];
+const money=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(n)||0);
+function today(){return new Date().toISOString().slice(0,10)}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));render(id)}
+function modal(title,body){modalTitle.textContent=title;modalBody.innerHTML=body;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function toast(msg){let x=document.createElement('div');x.textContent=msg;x.style='position:fixed;right:16px;bottom:80px;z-index:100;background:#17324d;color:#fff;padding:12px 15px;border-radius:11px;box-shadow:0 8px 25px #0003;font-size:13px';document.body.appendChild(x);setTimeout(()=>x.remove(),2200)}
+function opts(arr,val=''){return arr.map(x=>`<option ${x===val?'selected':''}>${esc(x)}</option>`).join('')}
+function formField(label,name,value='',type='text',extra=''){return `<div class="field"><label>${label}</label><input class="input" name="${name}" type="${type}" value="${esc(value)}" ${extra}></div>`}
+async function render(id){
+if(id==='home')await renderHome();
+if(id==='students')await renderStudents();
+if(id==='classes')await renderClasses();
+if(id==='schedule')await renderSchedule();
+if(id==='attendance')await renderAttendance();
+if(id==='payments')await renderPayments();
+if(id==='paymentSettings')await renderPaymentSettings();
+if(id==='invoices')await renderInvoices();
+if(id==='reports')await renderReports();
+if(id==='notes')await renderNotes();
+if(id==='settings')await renderSettings();
+if(id==='backup')await renderBackup();
+}
+async function renderHome(){
+let [ss,ps,ins,cs,at]=await Promise.all([all('students'),all('payments'),all('invoices'),all('classes'),all('attendance')]);
+let active=ss.filter(s=>s.status==='Aktif'), paid=ins.filter(i=>i.status==='LUNAS'&&!i.voidReason);
+let month=new Date().toISOString().slice(0,7), inc=paid.filter(i=>i.date?.slice(0,7)===month).reduce((a,i)=>a+Number(i.total||0),0);
+let unpaid=ins.filter(i=>['BELUM LUNAS','CICILAN'].includes(i.status)).length;
+let dayAtt=at.filter(a=>a.date===today()&&a.status==='HADIR').length;
+let now=new Date(), wd=['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][now.getDay()], time=now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+home.innerHTML=`<div class="title"><div><h1>Dashboard</h1><div class="subtitle">${wd}, ${new Date().toLocaleDateString('id-ID')} • ${time}</div></div><button class="btn green" onclick="openStudent()">+ Siswa</button></div>
+<div class="cards"><div class="card stat"><div class="label">TOTAL SISWA</div><div class="value">${ss.length}</div></div><div class="card stat"><div class="label">SISWA AKTIF</div><div class="value">${active.length}</div></div><div class="card stat"><div class="label">HADIR HARI INI</div><div class="value">${dayAtt}</div></div><div class="card stat"><div class="label">BELUM LUNAS</div><div class="value">${unpaid}</div></div></div>
+<div class="grid2"><div class="card"><b>Pendapatan Bulan Ini</b><div style="font-size:28px;font-weight:800;margin:12px 0;color:var(--green)">${money(inc)}</div><button class="btn light small" onclick="go('reports')">Lihat Laporan</button></div><div class="card"><b>Kelas Hari Ini</b><div style="margin-top:12px">${cs.slice(0,5).map(c=>`<div style="padding:9px 0;border-bottom:1px solid var(--line)"><b>${esc(c.className)}</b><br><small>${esc(c.subject)} ${c.level?'- '+esc(c.level):''} • ${esc(c.startTime||'')}–${esc(c.endTime||'')}</small></div>`).join('')||'<div class="empty">Belum ada kelas.</div>'}</div></div></div>
+<div class="card" style="margin-top:14px"><b>Aktivitas Terbaru</b><div style="margin-top:10px">${ins.sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||'')).slice(0,6).map(i=>`<div style="padding:9px 0;border-bottom:1px solid var(--line)">🧾 ${esc(i.invoiceNumber)} • ${esc(i.studentName)} • ${money(i.total)} <span class="badge ${i.status==='LUNAS'?'paid':i.status==='CICILAN'?'partial':'unpaid'}">${esc(i.status)}</span></div>`).join('')||'<div class="empty">Belum ada transaksi.</div>'}</div></div>`;
+}
+async function renderStudents(){
+let ss=await all('students'), q=state.search.toLowerCase();ss=ss.filter(s=>Object.values(s).join(' ').toLowerCase().includes(q));
+students.innerHTML=`<div class="title"><div><h1>Data Siswa</h1><div class="subtitle">${ss.length} data ditemukan</div></div><button class="btn green" onclick="openStudent()">+ Tambah Siswa</button></div>
+<div class="toolbar"><input class="input search" placeholder="🔍 Cari nama, ID, HP, sekolah..." value="${esc(state.search)}" oninput="state.search=this.value;renderStudents()"><select class="select" style="max-width:180px" onchange="filterStudents(this.value)"><option value="">Semua status</option><option>Aktif</option><option>Tidak Aktif</option><option>Selesai</option></select></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>ID</th><th>Nama</th><th>Program</th><th>Pembayaran</th><th>Tarif</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${ss.map(s=>`<tr><td>${esc(s.studentCode)}</td><td><b>${esc(s.name)}</b><br><small>${esc(s.parentName||'-')}</small></td><td>${esc(s.subject)}${s.level?' • '+esc(s.level):''}</td><td>${esc(s.paymentType)}</td><td>${money(s.customPrice||s.defaultPrice)}</td><td><span class="badge ${s.status==='Aktif'?'paid':'unpaid'}">${esc(s.status)}</span></td><td><button class="btn small light" onclick="openStudent('${s.id}')">Edit</button> <button class="btn small gray" onclick="viewStudent('${s.id}')">Lihat</button> <button class="btn small red" onclick="deleteStudent('${s.id}')">Hapus</button></td></tr>`).join('')||'<tr><td colspan="7" class="empty">Belum ada data siswa.</td></tr>'}</tbody></table></div>`;
+}
+function filterStudents(v){state.search=v?'__STATUS__'+v:'';renderStudents(); if(v){all('students').then(ss=>{let arr=ss.filter(s=>s.status===v);students.querySelector('tbody').innerHTML=arr.map(s=>`<tr><td>${esc(s.studentCode)}</td><td><b>${esc(s.name)}</b></td><td>${esc(s.subject)} ${s.level?'• '+esc(s.level):''}</td><td>${esc(s.paymentType)}</td><td>${money(s.customPrice||s.defaultPrice)}</td><td><span class="badge paid">${esc(s.status)}</span></td><td><button class="btn small light" onclick="openStudent('${s.id}')">Edit</button> <button class="btn small red" onclick="deleteStudent('${s.id}')">Hapus</button></td></tr>`).join('')||'<tr><td colspan="7" class="empty">Tidak ada data.</td></tr>'})}}
+async function nextCode(){let ss=await all('students'), n=ss.reduce((m,s)=>Math.max(m,parseInt(String(s.studentCode||'').replace(/\D/g,''))||0),0)+1;return 'BB-'+String(n).padStart(4,'0')}
+async function openStudent(id=''){let s=id?(await all('students')).find(x=>x.id===id):null;let code=s?.studentCode||await nextCode();
+modal(s?'Edit Siswa':'Tambah Siswa',`<form id="studentForm"><div class="formgrid">
+${formField('ID Siswa','studentCode',code)}${formField('Nama Lengkap *','name',s?.name||'')}
+${formField('Nama Panggilan','nickname',s?.nickname||'')}${formField('Nomor HP','phone',s?.phone||'')}
+${formField('Nama Orang Tua/Wali','parentName',s?.parentName||'')}${formField('Nomor HP Wali','parentPhone',s?.parentPhone||'')}
+${formField('Sekolah','school',s?.school||'')}${formField('Kelas Sekolah','schoolGrade',s?.schoolGrade||'')}
+<div class="field"><label>Mata Pelajaran *</label><select class="select" name="subject" onchange="toggleLevel(this.value)">${opts(subjects,s?.subject||'')}</select></div>
+<div class="field" id="levelField"><label>Level</label><select class="select" name="level">${opts(levels,s?.level||'Beginner')}</select></div>
+<div class="field"><label>Jenis Pembayaran *</label><select class="select" name="paymentType">${opts(paymentTypes,s?.paymentType||'Per Meeting')}</select></div>
+${formField('Tarif Standar / Khusus','customPrice',s?.customPrice??'','number','min="0" step="1" placeholder="Kosongkan untuk tarif standar"')}
+${formField('Tanggal Mulai','startDate',s?.startDate||today(),'date')}
+<div class="field"><label>Status</label><select class="select" name="status">${opts(['Aktif','Tidak Aktif','Selesai'],s?.status||'Aktif')}</select></div>
+<div class="field full"><label>Alamat</label><textarea class="textarea" name="address">${esc(s?.address||'')}</textarea></div>
+<div class="field full"><label>Catatan</label><textarea class="textarea" name="notes">${esc(s?.notes||'')}</textarea></div>
+</div><div class="modalfoot"><button type="button" class="btn gray" onclick="closeModal()">Batal</button><button class="btn green">Simpan</button></div></form>`);
+document.getElementById('studentForm').onsubmit=async e=>{e.preventDefault();let f=new FormData(e.target);let obj=Object.fromEntries(f.entries());if(!obj.name||!obj.subject||!obj.paymentType)return toast('Lengkapi data wajib.');obj.id=s?.id||uid();obj.studentCode=obj.studentCode||code;obj.customPrice=obj.customPrice!==''&&obj.customPrice!=null?Number(obj.customPrice):'';obj.defaultPrice=await getRate(obj.subject,obj.level,obj.paymentType);obj.createdAt=s?.createdAt||new Date().toISOString();await put('students',obj);closeModal();toast('Data siswa berhasil disimpan.');renderStudents()}}
+function toggleLevel(v){document.getElementById('levelField').style.display=v==='Bahasa Inggris'?'block':'none'}
+async function deleteStudent(id){
+  const s=(await all('students')).find(x=>x.id===id);
+  if(!s) return toast('Data siswa tidak ditemukan.');
+  const ok=confirm(`Hapus siswa "${s.name}"?\n\nData siswa akan dihapus dari database Supabase. Data pembayaran, invoice, absensi, dan catatan terkait tidak otomatis ikut dihapus.`);
+  if(!ok) return;
+  try{
+    await del('students',id);
+    closeModal();
+    toast('Data siswa berhasil dihapus.');
+    await renderStudents();
+  }catch(e){
+    console.error(e);
+    toast('Gagal menghapus siswa: '+e.message);
+  }
+}
+async function viewStudent(id){let s=(await all('students')).find(x=>x.id===id);let [ins,at]=await Promise.all([all('invoices'),all('attendance')]);let si=ins.filter(i=>i.studentId===id),sa=at.filter(a=>a.studentId===id),had=sa.filter(a=>a.status==='HADIR').length;modal('Profil Siswa',`<div class="card"><div style="display:flex;gap:12px;align-items:center"><div class="logo-box">BB</div><div><h2 style="margin:0">${esc(s.name)}</h2><small>${esc(s.studentCode)}</small></div></div><hr style="border:0;border-top:1px solid var(--line);margin:15px 0"><p><b>Program:</b> ${esc(s.subject)} ${s.level?'• '+esc(s.level):''}</p><p><b>Pembayaran:</b> ${esc(s.paymentType)} • <b>Tarif:</b> ${money(s.customPrice||s.defaultPrice)}</p><p><b>Wali:</b> ${esc(s.parentName||'-')} • ${esc(s.parentPhone||'-')}</p><p><b>Presensi:</b> ${had}/${sa.length} hadir ${sa.length?'('+Math.round(had/sa.length*100)+'%)':'-'}</p><p><b>Invoice:</b> ${si.length}</p></div><div class="modalfoot"><button class="btn light" onclick="openStudent('${id}')">Edit</button><button class="btn red" onclick="deleteStudent('${id}')">Hapus</button><button class="btn" onclick="go('payments');closeModal()">Pembayaran</button></div>`)}
+async function getRate(subject,level,type){let rates=await all('settings');let r=rates.find(x=>x.id==='rates')?.value||{};return Number(r[subject+'|'+(level||'')+'|'+type]||0)}
+
+// =========================
+// SUPABASE STORAGE: PAYMENT PROOFS
+// =========================
+const PAYMENT_PROOF_BUCKET='payment-proofs';
+const PAYMENT_PROOF_MAX_SIZE=5*1024*1024;
+const PAYMENT_PROOF_TYPES=['image/jpeg','image/png','image/webp'];
+const PAYMENT_PROOF_SETTING_PREFIX='paymentProof:';
+
+function paymentProofKey(paymentId){return PAYMENT_PROOF_SETTING_PREFIX+String(paymentId)}
+async function getPaymentProofPath(paymentId){return paymentId?await setting(paymentProofKey(paymentId),''):''}
+
+function storagePathUrl(path){return String(path||'').split('/').map(encodeURIComponent).join('/')}
+
+async function uploadPaymentProof(file,paymentId){
+  if(!file)return '';
+  if(!PAYMENT_PROOF_TYPES.includes(file.type))throw new Error('Bukti pembayaran harus JPG, PNG, atau WebP.');
+  if(file.size>PAYMENT_PROOF_MAX_SIZE)throw new Error('Ukuran bukti pembayaran maksimal 5 MB.');
+  const original=(file.name||'bukti').replace(/[^a-zA-Z0-9._-]/g,'_').slice(-80)||'bukti';
+  const path='payments/'+String(paymentId)+'/'+Date.now()+'_'+original;
+  const url=SUPABASE_URL+'/storage/v1/object/'+PAYMENT_PROOF_BUCKET+'/'+storagePathUrl(path);
+  const response=await fetch(url,{method:'POST',headers:{
+    apikey:SUPABASE_KEY,
+    Authorization:'Bearer '+SUPABASE_KEY,
+    'Content-Type':file.type,
+    'x-upsert':'false'
+  },body:file});
+  const text=await response.text();
+  if(!response.ok)throw new Error('Upload bukti pembayaran gagal: '+(text||response.statusText));
+  return path;
+}
+
+async function deletePaymentProofPath(path){
+  if(!path)return;
+  const url=SUPABASE_URL+'/storage/v1/object/'+PAYMENT_PROOF_BUCKET;
+  const response=await fetch(url,{method:'DELETE',headers:{
+    apikey:SUPABASE_KEY,
+    Authorization:'Bearer '+SUPABASE_KEY,
+    'Content-Type':'application/json'
+  },body:JSON.stringify([path])});
+  const text=await response.text();
+  if(!response.ok)throw new Error('Gagal menghapus file bukti pembayaran: '+(text||response.statusText));
+}
+
+async function savePaymentProofPath(paymentId,path){await setSetting(paymentProofKey(paymentId),path||'')}
+async function removePaymentProof(paymentId){
+  const path=await getPaymentProofPath(paymentId);
+  if(path){await deletePaymentProofPath(path);}
+  try{await del('settings',paymentProofKey(paymentId));}catch(e){console.warn('[Payment Proof] metadata tidak ditemukan/terhapus:',e.message)}
+}
+
+async function getSignedPaymentProofUrl(path){
+  if(!path)return '';
+  const url=SUPABASE_URL+'/storage/v1/object/sign/'+PAYMENT_PROOF_BUCKET;
+  const response=await fetch(url,{method:'POST',headers:{
+    apikey:SUPABASE_KEY,
+    Authorization:'Bearer '+SUPABASE_KEY,
+    'Content-Type':'application/json'
+  },body:JSON.stringify({expiresIn:3600,paths:[path]})});
+  const text=await response.text();
+  let data=null;try{data=text?JSON.parse(text):null}catch{}
+  if(!response.ok)throw new Error('Gagal membuat link bukti pembayaran: '+(data?.message||text||response.statusText));
+  const signed=data?.signedURLs?.[0]?.signedURL||data?.signedURL||data?.signedUrl||'';
+  if(!signed)throw new Error('Supabase tidak mengembalikan link bukti pembayaran.');
+  return signed.startsWith('http')?signed:SUPABASE_URL+'/storage/v1'+signed;
+}
+
+function paymentProofLabel(path){return path?'📎 Ada bukti':'-'}
+async function openPayment(refId='', forceStudent=false){
+  const ss=await all('students');
+  if(!ss.length)return toast('Tambahkan siswa terlebih dahulu.');
+
+  const paymentsData=await all('payments');
+  const existing=(!forceStudent && refId)?paymentsData.find(x=>String(x.id)===String(refId)):null;
+  const editing=!!existing;
+  const selectedStudentId=editing?existing.studentId:(refId && ss.some(x=>String(x.id)===String(refId))?refId:ss[0].id);
+  const selectedStudent=ss.find(x=>String(x.id)===String(selectedStudentId))||ss[0];
+
+  modal(editing?'Edit Pembayaran':'Tambah Pembayaran',`<form id="payForm"><div class="formgrid">
+<div class="field full"><label>Siswa *</label><select class="select" name="studentId" id="payStudent">${ss.map(x=>`<option value="${esc(x.id)}" ${String(x.id)===String(selectedStudentId)?'selected':''}>${esc(x.name)} — ${esc(x.subject)} ${x.level?'• '+esc(x.level):''}</option>`).join('')}</select></div>
+<div class="field"><label>Jenis Pembayaran</label><select class="select" name="paymentType" id="payType">${opts(paymentTypes,existing?.paymentType||selectedStudent.paymentType||'Per Meeting')}</select></div>
+${formField('Tanggal Pembayaran','date',existing?.date||today(),'date')}
+${formField('Periode Awal','periodStart',existing?.periodStart||today(),'date')}${formField('Periode Akhir','periodEnd',existing?.periodEnd||today(),'date')}
+${formField('Pertemuan Ke-','meetingNumber',existing?.meetingNumber??'','number')}${formField('Jumlah Meeting','quantity',existing?.quantity??'1','number')}
+${formField('Bulan (YYYY-MM)','month',existing?.month||today().slice(0,7),'month')}${formField('Tarif','unitPrice',existing?.unitPrice??'','number','min="0" step="1"')}
+${formField('Diskon','discount',existing?.discount??'0','number','min="0" step="1"')}${formField('Nominal Dibayar','amountPaid',existing?.amountPaid??'','number','min="0" step="1"')}
+<div class="field"><label>Metode</label><select class="select" name="method">${opts(['Cash','Transfer','QRIS','Lainnya'],existing?.method||'Cash')}</select></div>
+<div class="field full"><label>Catatan</label><textarea class="textarea" name="notes">${esc(existing?.notes||'')}</textarea></div>
+<div class="field full"><label>📎 Bukti Pembayaran</label><input class="input" id="paymentProofFile" type="file" accept="image/jpeg,image/png,image/webp"><small id="paymentProofInfo" style="display:block;margin-top:7px;color:var(--muted)">${editing?'Memuat status bukti pembayaran...':'Opsional • JPG/PNG/WebP • Maks. 5 MB'}</small></div>
+</div><div class="notice" id="payHint"></div><div class="modalfoot"><button type="button" class="btn gray" onclick="closeModal()">Batal</button><button class="btn green">${editing?'Simpan Perubahan':'Simpan & Buat Invoice'}</button></div></form>`);
+
+  const studentEl=document.getElementById('payStudent');
+  const typeEl=document.getElementById('payType');
+  const tariffEl=document.querySelector('#payForm [name="unitPrice"]');
+  const qtyEl=document.querySelector('#payForm [name="quantity"]');
+  const discountEl=document.querySelector('#payForm [name="discount"]');
+  const paidEl=document.querySelector('#payForm [name="amountPaid"]');
+  const hintEl=document.getElementById('payHint');
+  const proofFileEl=document.getElementById('paymentProofFile');
+  const proofInfoEl=document.getElementById('paymentProofInfo');
+  const existingProofPath=editing?await getPaymentProofPath(existing.id):'';
+  let selectedProofFile=null;
+  let existingProof=existingProofPath;
+  if(existingProof){proofInfoEl.innerHTML='Bukti tersimpan di Supabase Storage. <button type="button" class="btn small light" id="viewExistingProofBtn">Lihat</button> <span style="color:var(--muted)">• pilih file baru untuk mengganti</span>';document.getElementById('viewExistingProofBtn').onclick=async()=>{try{const u=await getSignedPaymentProofUrl(existingProof);window.open(u,'_blank','noopener');}catch(e){toast(e.message)}}}
+  proofFileEl.onchange=()=>{const f=proofFileEl.files?.[0];selectedProofFile=null;if(!f){if(existingProof)proofInfoEl.textContent='Bukti tersimpan di Supabase Storage. Pilih file baru untuk mengganti.';return;}if(!PAYMENT_PROOF_TYPES.includes(f.type)){toast('Bukti pembayaran harus JPG, PNG, atau WebP.');proofFileEl.value='';return;}if(f.size>PAYMENT_PROOF_MAX_SIZE){toast('Ukuran bukti pembayaran maksimal 5 MB.');proofFileEl.value='';return;}selectedProofFile=f;proofInfoEl.textContent='File baru dipilih: '+f.name+' • '+(f.size/1024/1024).toFixed(2)+' MB';};
+
+  // IMPORTANT: when editing, the values already stored in Supabase are kept.
+  // Automatic tariff suggestion is only used for a NEW payment or when the
+  // user changes student/payment type. Manual tariff edits are never overwritten.
+  let tariffReady=editing;
+
+  function recalcHint(){
+    const type=typeEl.value;
+    const price=Math.max(0,Number(tariffEl.value||0));
+    const qty=Math.max(1,Number(qtyEl.value||1));
+    const discount=Math.max(0,Number(discountEl.value||0));
+    const subtotal=type==='Per Meeting'?price*qty:price;
+    const total=Math.max(0,subtotal-discount);
+    const paid=Math.max(0,Number(paidEl.value||0));
+    const remaining=Math.max(0,total-paid);
+    hintEl.textContent='Tarif: '+money(price)+' • Subtotal: '+money(subtotal)+' • Total: '+money(total)+' • Dibayar: '+money(paid)+' • Sisa: '+money(remaining);
+  }
+
+  async function suggestTariff(force=false){
+    const st=(await all('students')).find(x=>String(x.id)===String(studentEl.value));
+    if(!st)return recalcHint();
+    const rate=await getRate(st.subject,st.level,typeEl.value);
+    const suggested=(st.customPrice!=='' && st.customPrice!=null)?Number(st.customPrice):Number(rate||0);
+    // Never overwrite an existing value during edit unless the student/type was changed.
+    if(force || !tariffEl.value) tariffEl.value=suggested||'';
+    tariffReady=true;
+    recalcHint();
+  }
+
+  studentEl.addEventListener('change',()=>suggestTariff(true));
+  typeEl.addEventListener('change',()=>suggestTariff(true));
+  [tariffEl,qtyEl,discountEl,paidEl].forEach(el=>el.addEventListener('input',recalcHint));
+
+  // Existing payment: show exactly what is stored. New payment: fill tariff once.
+  if(!tariffReady) await suggestTariff(false);
+  else recalcHint();
+
+  document.getElementById('payForm').onsubmit=async e=>{
+    e.preventDefault();
+    try{
+      const f=new FormData(e.target),o=Object.fromEntries(f.entries());
+      const stu=(await all('students')).find(x=>String(x.id)===String(o.studentId));
+      if(!stu)return toast('Siswa tidak ditemukan.');
+
+      const unitPrice=Math.max(0,Number(o.unitPrice||0));
+      const quantity=Math.max(1,Number(o.quantity||1));
+      const discount=Math.max(0,Number(o.discount||0));
+      const calculatedSubtotal=o.paymentType==='Per Meeting'?unitPrice*quantity:unitPrice;
+      const total=Math.max(0,calculatedSubtotal-discount);
+      const amountPaid=Math.max(0,Number(o.amountPaid||0));
+      const remaining=Math.max(0,total-amountPaid);
+
+      const payment={
+        id:existing?.id||uid(),
+        studentId:stu.id,
+        studentName:stu.name,
+        className:existing?.className||'',
+        subject:stu.subject,
+        level:stu.level,
+        paymentType:o.paymentType,
+        periodStart:o.periodStart||null,
+        periodEnd:o.periodEnd||null,
+        meetingNumber:o.meetingNumber===''?null:Number(o.meetingNumber),
+        quantity,
+        month:o.month||null,
+        unitPrice,
+        discount,
+        total,
+        amountPaid,
+        remaining,
+        method:o.method||'Cash',
+        status:amountPaid>=total?'LUNAS':amountPaid>0?'CICILAN':'BELUM LUNAS',
+        date:o.date||today(),
+        notes:o.notes||'',
+        createdAt:existing?.createdAt||new Date().toISOString()
+      };
+
+      console.log('[Pembayaran] DATA SEBELUM UPDATE',payment);
+      let newProofPath='';
+      try{
+        if(selectedProofFile)newProofPath=await uploadPaymentProof(selectedProofFile,payment.id);
+        const savedPayment=await put('payments',payment);
+        if(selectedProofFile){
+          await savePaymentProofPath(payment.id,newProofPath);
+          if(existingProof && existingProof!==newProofPath){try{await deletePaymentProofPath(existingProof)}catch(cleanErr){console.warn('[Payment Proof] Bukti lama gagal dihapus:',cleanErr.message)}}
+          existingProof=newProofPath;
+        }
+      }catch(saveErr){
+        if(newProofPath){try{await deletePaymentProofPath(newProofPath)}catch(cleanErr){console.warn('[Payment Proof] Cleanup gagal:',cleanErr.message)}}
+        throw saveErr;
+      }
+      const savedPayment=(await all('payments')).find(x=>String(x.id)===String(payment.id));
+      if(!savedPayment)throw new Error('Pembayaran tersimpan tetapi gagal dibaca kembali dari Supabase.');
+
+      // Verify the values actually stored in Supabase before updating the invoice.
+      const verify=(await all('payments')).find(x=>String(x.id)===String(payment.id));
+      if(!verify)throw new Error('Pembayaran berhasil dikirim tetapi tidak ditemukan saat verifikasi Supabase.');
+      const samePrice=Number(verify.unitPrice||0)===unitPrice;
+      const samePaid=Number(verify.amountPaid||0)===amountPaid;
+      const sameTotal=Number(verify.total||0)===total;
+      if(!samePrice || !samePaid || !sameTotal){
+        console.error('[Pembayaran] VERIFIKASI GAGAL', {expected:{unitPrice,amountPaid,total},actual:{unitPrice:verify.unitPrice,amountPaid:verify.amountPaid,total:verify.total}});
+        throw new Error('Supabase tidak menyimpan Tarif/Nominal Dibayar/Total sesuai nilai yang dimasukkan. Periksa RLS/policy tabel payments.');
+      }
+
+      await syncInvoiceFromPayment(verify);
+      closeModal();
+      toast(editing?'Pembayaran, tarif, nominal dibayar, dan invoice berhasil diperbarui.':'Pembayaran tersimpan & invoice dibuat.');
+      if(editing)await renderPayments();
+      else {
+        const inv=await findInvoiceByPayment(verify.id);
+        if(inv)openInvoice(inv.id); else await renderPayments();
+      }
+    }catch(err){
+      console.error('[Pembayaran] Simpan gagal',err);
+      toast('Gagal menyimpan pembayaran: '+err.message);
+    }
+  };
+}
+
+async function findInvoiceByPayment(paymentId){
+  const invs=await all('invoices');
+  return invs.find(i=>i.paymentId===paymentId)||null;
+}
+
+async function syncInvoiceFromPayment(p){
+  const existingInvoice=await findInvoiceByPayment(p.id);
+  const invs=await all('invoices');
+  const num=existingInvoice
+    ? existingInvoice.invoiceNumber
+    : 'INV-BB-'+String(p.date||today()).slice(0,7).replace('-','')+'-'+String(Math.max(0,...invs.map(i=>Number((i.invoiceNumber||'').split('-').pop())||0))+1).padStart(4,'0');
+
+  const invoice={
+    id:existingInvoice?.id||uid(),
+    invoiceNumber:num,
+    paymentId:p.id,
+    studentId:p.studentId,
+    studentName:p.studentName,
+    subject:p.subject,
+    level:p.level,
+    paymentType:p.paymentType,
+    periodStart:p.periodStart||null,
+    periodEnd:p.periodEnd||null,
+    meetingNumber:p.meetingNumber?Number(p.meetingNumber):null,
+    quantity:Number(p.quantity||1),
+    month:p.month||null,
+    date:p.date||today(),
+    paymentDate:p.date||today(),
+    unitPrice:Number(p.unitPrice||0),
+    subtotal:(p.paymentType==='Per Meeting'?Number(p.unitPrice||0)*Number(p.quantity||1):Number(p.unitPrice||0)),
+    discount:Number(p.discount||0),
+    total:Number(p.total||0),
+    amountPaid:Number(p.amountPaid||0),
+    remainingAmount:Number(p.remaining||0),
+    method:p.method||'Cash',
+    status:p.status||'BELUM LUNAS',
+    notes:p.notes||'',
+    createdAt:existingInvoice?.createdAt||new Date().toISOString(),
+    voidReason:existingInvoice?.voidReason||null
+  };
+
+  // Editing a payment re-opens its invoice unless the invoice was intentionally VOIDed.
+  if(invoice.status!=='VOID')invoice.voidReason=null;
+  return put('invoices',invoice);
+}
+
+async function createInvoice(p){ return syncInvoiceFromPayment(p); }
+
+async function deletePayment(id){
+  const p=(await all('payments')).find(x=>x.id===id);
+  if(!p)return toast('Pembayaran tidak ditemukan.');
+  if(!confirm('Hapus pembayaran ini beserta invoice dan bukti pembayaran terkait?'))return;
+  try{
+    const inv=await findInvoiceByPayment(id);
+    const proof=await getPaymentProofPath(id);
+    if(inv)await del('invoices',inv.id);
+    await del('payments',id);
+    if(proof){try{await deletePaymentProofPath(proof)}catch(e){console.warn('[Payment Proof] File gagal dihapus:',e.message)}}
+    try{await del('settings',paymentProofKey(id))}catch(e){console.warn('[Payment Proof] Metadata gagal dihapus:',e.message)}
+    toast('Pembayaran, invoice, dan bukti pembayaran berhasil dihapus.');
+    await renderPayments();
+  }catch(e){
+    console.error(e);
+    toast('Gagal menghapus pembayaran: '+e.message);
+  }
+}
+
+async function renderPayments(){
+  const paymentsData=await all('payments');
+  const proofSettings=await all('settings');
+  const proofMap=Object.fromEntries(proofSettings.filter(x=>String(x.id).startsWith(PAYMENT_PROOF_SETTING_PREFIX)).map(x=>[String(x.id).slice(PAYMENT_PROOF_SETTING_PREFIX.length),x.value||'']));
+  const cfg=await setting('paymentMethods',{bankName:'',accountNumber:'',accountName:'',qris:'',instructions:''});
+
+  const paymentInfo=`
+    <div class="cards" style="margin-bottom:16px">
+      <div class="card">
+        <h3>🏦 Transfer Bank</h3>
+        <div style="margin-top:10px"><small style="color:var(--muted)">Bank</small><div style="font-size:18px;font-weight:700">${esc(cfg.bankName||'-')}</div></div>
+        <div style="margin-top:10px"><small style="color:var(--muted)">Nomor Rekening</small><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b style="font-size:20px">${esc(cfg.accountNumber||'-')}</b>${cfg.accountNumber?`<button class="btn small light" onclick="copyPaymentText(${JSON.stringify(cfg.accountNumber)})">📋 Salin</button>`:''}</div></div>
+        <div style="margin-top:10px"><small style="color:var(--muted)">Atas Nama</small><div>${esc(cfg.accountName||'-')}</div></div>
+      </div>
+      <div class="card">
+        <h3>📱 QRIS</h3>
+        ${cfg.qris?`<div style="text-align:center;margin-top:10px"><img src="${cfg.qris}" alt="QRIS" style="width:min(100%,280px);max-height:300px;object-fit:contain;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fff"><br><button class="btn small light" style="margin-top:10px" onclick="showPaymentQris(${JSON.stringify(cfg.qris)})">🔍 Perbesar QRIS</button></div>`:'<div style="color:var(--muted);margin-top:10px">QRIS belum diatur. Buka Pengaturan Pembayaran.</div>'}
+      </div>
+    </div>
+    ${cfg.instructions?`<div class="card" style="margin-bottom:16px"><h3>📝 Instruksi Pembayaran</h3><div style="white-space:pre-wrap;margin-top:8px">${esc(cfg.instructions)}</div></div>`:''}
+  `;
+
+  payments.innerHTML=`<div class="title"><div><h1>Pembayaran</h1><div class="subtitle">Kelola pembayaran siswa dan tampilkan metode pembayaran.</div></div><button class="btn green" onclick="openPayment()">+ Tambah Pembayaran</button></div>
+  ${paymentInfo}
+  <div class="card"><div class="tablewrap"><table><thead><tr><th>Tanggal</th><th>Siswa</th><th>Jenis</th><th>Jumlah</th><th>Dibayar</th><th>Sisa</th><th>Status</th><th>Bukti</th><th>Aksi</th></tr></thead><tbody>
+  ${paymentsData.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).map(p=>{const proof=proofMap[String(p.id)]||'';return `<tr><td>${esc(p.date||'-')}</td><td>${esc(p.studentName||'-')}</td><td>${esc(p.paymentType||'-')}</td><td>${money(p.total)}</td><td>${money(p.amountPaid)}</td><td>${money(p.remaining)}</td><td><span class="badge ${p.status==='LUNAS'?'paid':p.status==='CICILAN'?'partial':'unpaid'}">${esc(p.status||'-')}</span></td><td>${proof?'<span title="Bukti tersimpan">📎</span>':'-'}</td><td><button class="btn small light" onclick="openPayment('${p.id}')">Edit</button> <button class="btn small red" onclick="deletePayment('${p.id}')">Hapus</button></td></tr>`}).join('')||'<tr><td colspan="9" style="text-align:center;color:var(--muted)">Belum ada pembayaran.</td></tr>'}
+  </tbody></table></div></div>`;
+}
+
+async function copyPaymentText(text){
+  try{
+    await navigator.clipboard.writeText(text);
+    toast('Nomor rekening berhasil disalin.');
+  }catch(e){
+    const ta=document.createElement('textarea');
+    ta.value=text; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); ta.remove();
+    toast('Nomor rekening berhasil disalin.');
+  }
+}
+
+function showPaymentQris(src){
+  const old=document.getElementById('paymentQrisModal');
+  if(old) old.remove();
+  const modal=document.createElement('div');
+  modal.id='paymentQrisModal';
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px';
+  modal.innerHTML=`<div style="background:#fff;border-radius:16px;padding:16px;max-width:92vw;max-height:92vh;text-align:center;position:relative"><button class="btn small red" style="position:absolute;right:10px;top:10px" onclick="document.getElementById('paymentQrisModal').remove()">✕</button><img src="${src}" alt="QRIS" style="max-width:80vw;max-height:80vh;object-fit:contain"></div>`;
+  modal.onclick=e=>{if(e.target===modal)modal.remove()};
+  document.body.appendChild(modal);
+}
+
+async function openInvoiceByPayment(pid){
+  const i=await findInvoiceByPayment(pid);
+  if(i)openInvoice(i.id);
+}
+
+async function renderInvoices(){
+  let ins=await all('invoices'),q=state.invoiceSearch.toLowerCase();
+  ins=ins.filter(i=>Object.values(i).join(' ').toLowerCase().includes(q));
+  ins.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+  invoices.innerHTML=`<div class="title"><div><h1>Invoice & Arsip</h1><div class="subtitle">${ins.length} invoice</div></div><button class="btn green" onclick="openPayment()">+ Pembayaran</button></div><div class="toolbar"><input class="input search" placeholder="🔍 Cari nomor invoice / nama siswa..." value="${esc(state.invoiceSearch)}" oninput="state.invoiceSearch=this.value;renderInvoices()"><select class="select" style="max-width:160px" onchange="filterInvoices(this.value)" id="invoiceStatusFilter"><option value="">Semua status</option><option>LUNAS</option><option>CICILAN</option><option>BELUM LUNAS</option><option>VOID</option></select></div><div class="tablewrap"><table class="table"><thead><tr><th>Invoice</th><th>Tanggal</th><th>Siswa</th><th>Program</th><th>Total</th><th>Dibayar</th><th>Sisa</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${ins.map(i=>`<tr><td><b>${esc(i.invoiceNumber)}</b></td><td>${esc(i.date||'-')}</td><td>${esc(i.studentName||'-')}</td><td>${esc(i.subject||'-')} ${i.level?'• '+esc(i.level):''}</td><td>${money(i.total)}</td><td>${money(i.amountPaid)}</td><td>${money(i.remainingAmount)}</td><td><span class="badge ${i.status==='LUNAS'?'paid':i.status==='CICILAN'?'partial':i.status==='VOID'?'unpaid':'unpaid'}">${esc(i.status||'-')}</span></td><td><button class="btn small light" onclick="openInvoice('${i.id}')">Lihat</button> <button class="btn small light" onclick="openPaymentByInvoice('${i.id}')">Edit</button> <button class="btn small red" onclick="deleteInvoice('${i.id}')">Hapus</button></td></tr>`).join('')||'<tr><td colspan="9" class="empty">Belum ada invoice.</td></tr>'}</tbody></table></div>`;
+}
+
+async function filterInvoices(v){
+  await renderInvoices();
+  const select=document.getElementById('invoiceStatusFilter');
+  if(select)select.value=v||'';
+  if(!v)return;
+  const tbody=invoices.querySelector('tbody');
+  let ins=await all('invoices');
+  const q=state.invoiceSearch.toLowerCase();
+  ins=ins.filter(i=>i.status===v && Object.values(i).join(' ').toLowerCase().includes(q));
+  ins.sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+  tbody.innerHTML=ins.map(i=>`<tr><td><b>${esc(i.invoiceNumber)}</b></td><td>${esc(i.date||'-')}</td><td>${esc(i.studentName||'-')}</td><td>${esc(i.subject||'-')} ${i.level?'• '+esc(i.level):''}</td><td>${money(i.total)}</td><td>${money(i.amountPaid)}</td><td>${money(i.remainingAmount)}</td><td><span class="badge ${i.status==='LUNAS'?'paid':i.status==='CICILAN'?'partial':'unpaid'}">${esc(i.status)}</span></td><td><button class="btn small light" onclick="openInvoice('${i.id}')">Lihat</button> <button class="btn small light" onclick="openPaymentByInvoice('${i.id}')">Edit</button> <button class="btn small red" onclick="deleteInvoice('${i.id}')">Hapus</button></td></tr>`).join('')||'<tr><td colspan="9" class="empty">Tidak ada data.</td></tr>';
+}
+
+async function openPaymentByInvoice(invoiceId){
+  const i=(await all('invoices')).find(x=>x.id===invoiceId);
+  if(!i)return toast('Invoice tidak ditemukan.');
+  const p=await findInvoicePayment(i);
+  if(!p)return toast('Pembayaran terkait invoice tidak ditemukan.');
+  openPayment(p.id);
+}
+
+async function findInvoicePayment(invoice){
+  const paymentsData=await all('payments');
+  return paymentsData.find(p=>p.id===invoice.paymentId)||null;
+}
+
+async function deleteInvoice(id){
+  const i=(await all('invoices')).find(x=>x.id===id);
+  if(!i)return toast('Invoice tidak ditemukan.');
+  if(!confirm('Hapus invoice ini beserta pembayaran terkait?'))return;
+  try{
+    const p=await findInvoicePayment(i);
+    if(p){
+      const proof=await getPaymentProofPath(p.id);
+      await del('payments',p.id);
+      if(proof){try{await deletePaymentProofPath(proof)}catch(e){console.warn('[Payment Proof] File gagal dihapus:',e.message)}}
+      try{await del('settings',paymentProofKey(p.id))}catch(e){console.warn('[Payment Proof] Metadata gagal dihapus:',e.message)}
+    }
+    await del('invoices',id);
+    toast('Invoice dan pembayaran terkait berhasil dihapus.');
+    await renderInvoices();
+  }catch(e){
+    console.error(e);
+    toast('Gagal menghapus invoice: '+e.message);
+  }
+}
+
+async function openInvoice(id){
+  let i=(await all('invoices')).find(x=>x.id===id);
+  if(!i)return;
+  currentInvoice=i;
+  let biz=await setting('businessName','Bengkel Bahasa'),tag=await setting('tagline','Learning & Administration'),wa=await setting('whatsapp','');
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  invoicePage.classList.add('active');
+  const invoiceProofPath=await getPaymentProofPath(i.paymentId);
+  let invoiceProofHtml='';
+  if(invoiceProofPath){try{const proofUrl=await getSignedPaymentProofUrl(invoiceProofPath);invoiceProofHtml=`<div class="card no-print" style="margin-bottom:14px"><b>📎 Bukti Pembayaran</b><div style="margin-top:8px"><a class="btn light" href="${esc(proofUrl)}" target="_blank" rel="noopener">Lihat Bukti</a></div></div>`}catch(e){invoiceProofHtml='<div class="notice no-print">📎 Bukti pembayaran tersimpan, tetapi link sementara gagal dibuat.</div>'}}
+  invoicePage.innerHTML=`<div class="invoice-actions no-print"><button class="btn gray" onclick="go('invoices')">← Kembali</button><button class="btn" onclick="window.print()">🖨 Cetak / Simpan PDF</button><button class="btn green" onclick="shareInvoice()">📱 WhatsApp</button><button class="btn light" onclick="copyWA()">Salin Pesan</button>${i.status!=='VOID'?`<button class="btn red" onclick="voidInvoice('${i.id}')">Void</button>`:''}<button class="btn light" onclick="openPaymentByInvoice('${i.id}')">Edit Pembayaran</button><button class="btn red" onclick="deleteInvoice('${i.id}')">Hapus</button></div>${invoiceProofHtml}<article class="invoice" id="printInvoice"><div class="ih"><div><h2>${esc(biz)}</h2><div>${esc(tag)}</div><div>${esc(await setting('address',''))}</div><div>${esc(await setting('phone',''))}</div></div><div><b>INVOICE PEMBAYARAN</b><br>${esc(i.invoiceNumber)}<br>${esc(i.date||'-')}<br><span class="badge ${i.status==='LUNAS'?'paid':i.status==='CICILAN'?'partial':'unpaid'}">${esc(i.status)}</span></div></div><h3>Data Siswa</h3><table><tr><td>Nama</td><td>${esc(i.studentName||'-')}</td></tr><tr><td>Program</td><td>${esc(i.subject||'-')} ${i.level?'• '+esc(i.level):''}</td></tr><tr><td>Jenis Pembayaran</td><td>${esc(i.paymentType||'-')}</td></tr><tr><td>Periode/Pertemuan</td><td>${esc(i.periodStart||'-')} ${i.periodEnd?'s/d '+esc(i.periodEnd):''} ${i.meetingNumber?'Pertemuan ke-'+esc(i.meetingNumber):''} ${i.month||''}</td></tr></table><h3>Detail Transaksi</h3><table><tr><th>Deskripsi</th><th class="right">Jumlah</th></tr><tr><td>${esc(i.paymentType||'-')} ${Number(i.quantity||1)>1?'× '+Number(i.quantity):''}</td><td class="right">${money(i.subtotal)}</td></tr><tr><td>Diskon</td><td class="right">- ${money(i.discount)}</td></tr><tr><th>Total</th><th class="right">${money(i.total)}</th></tr><tr><td>Sudah Dibayar</td><td class="right">${money(i.amountPaid)}</td></tr><tr><th>Sisa</th><th class="right">${money(i.remainingAmount)}</th></tr></table><p>Metode Pembayaran: <b>${esc(i.method||'-')}</b></p><p>${esc(i.notes||'')}</p><hr><p style="text-align:center">${esc(await setting('invoiceFooter','Terima kasih telah belajar bersama Bengkel Bahasa.'))}</p></article>`;
+}
+function waText(i){return `Assalamu'alaikum.%0A%0ABerikut invoice pembayaran ${encodeURIComponent('Bengkel Bahasa')}:%0A%0ANama Siswa: ${encodeURIComponent(i.studentName||'')}%0AProgram: ${encodeURIComponent((i.subject||'')+' '+(i.level||''))}%0ANomor Invoice: ${encodeURIComponent(i.invoiceNumber||'')}%0ATotal: ${encodeURIComponent(money(i.total))}%0ASudah Dibayar: ${encodeURIComponent(money(i.amountPaid))}%0ASisa: ${encodeURIComponent(money(i.remainingAmount))}%0AStatus: ${encodeURIComponent(i.status||'')}%0A%0ATerima kasih.%0A%0ABengkel Bahasa`}
+async function shareInvoice(){let i=currentInvoice;if(!i)return;let text=decodeURIComponent(waText(i));if(navigator.share){try{await navigator.share({title:i.invoiceNumber,text})}catch(e){}}else window.open('https://wa.me/?text='+waText(i),'_blank')}
+async function copyWA(){if(!currentInvoice)return;try{await navigator.clipboard?.writeText(decodeURIComponent(waText(currentInvoice)));toast('Pesan WhatsApp disalin.')}catch(e){toast('Gagal menyalin pesan WhatsApp.')}}
+async function voidInvoice(id){
+  const reason=prompt('Alasan pembatalan invoice:');
+  if(!reason)return;
+  try{
+    const i=(await all('invoices')).find(x=>x.id===id);
+    if(!i)return toast('Invoice tidak ditemukan.');
+    i.status='VOID';
+    i.voidReason=reason;
+    await put('invoices',i);
+    const p=await findInvoicePayment(i);
+    if(p){p.status='VOID';await put('payments',p);}
+    toast('Invoice dan pembayaran terkait di-VOID.');
+    await openInvoice(id);
+  }catch(e){
+    console.error(e);
+    toast('Gagal melakukan VOID: '+e.message);
+  }
+}
+async function renderClasses(){let cs=await all('classes');classes.innerHTML=`<div class="title"><div><h1>Kelas</h1><div class="subtitle">${cs.length} kelas</div></div><button class="btn green" onclick="openClass()">+ Tambah Kelas</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Nama</th><th>Program</th><th>Pengajar</th><th>Hari/Jam</th><th>Ruangan</th><th>Aksi</th></tr></thead><tbody>${cs.map(c=>`<tr><td><b>${esc(c.className)}</b></td><td>${esc(c.subject)} ${c.level?'• '+esc(c.level):''}</td><td>${esc(c.teacher||'-')}</td><td>${esc(c.day||'-')} ${esc(c.startTime||'')}–${esc(c.endTime||'')}</td><td>${esc(c.room||'-')}</td><td><button class="btn small light" onclick="openClass('${c.id}')">Edit</button> <button class="btn small red" onclick="deleteClass('${c.id}')">Hapus</button></td></tr>`).join('')||'<tr><td colspan="6" class="empty">Belum ada kelas.</td></tr>'}</tbody></table></div>`}
+async function deleteClass(id){
+  const c=(await all('classes')).find(x=>x.id===id);
+  if(!c) return toast('Data kelas tidak ditemukan.');
+  const ok=confirm(`Hapus kelas "${c.className}"?\n\nData kelas akan dihapus dari database Supabase. Jadwal yang menggunakan data kelas ini akan ikut hilang karena jadwal menggunakan tabel kelas yang sama.`);
+  if(!ok) return;
+  try{
+    await del('classes',id);
+    const check=(await all('classes')).some(x=>String(x.id)===String(id));
+    if(check) throw new Error('Data masih ditemukan di Supabase setelah DELETE.');
+    toast('Kelas berhasil dihapus dari Supabase.');
+    await renderClasses();
+  }catch(e){
+    console.error(e);
+    toast('Gagal menghapus kelas: '+e.message);
+  }
+}
+async function openClass(id=''){let c=id?(await all('classes')).find(x=>x.id===id):null;modal(c?'Edit Kelas':'Tambah Kelas',`<form id="classForm"><div class="formgrid">${formField('Nama Kelas *','className',c?.className||'')}${formField('Pengajar','teacher',c?.teacher||'')}<div class="field"><label>Mata Pelajaran</label><select class="select" name="subject">${opts(subjects,c?.subject||'Bahasa Inggris')}</select></div><div class="field"><label>Level</label><select class="select" name="level">${opts(levels,c?.level||'Beginner')}</select></div><div class="field"><label>Hari</label><select class="select" name="day">${opts(['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'],c?.day||'Senin')}</select></div>${formField('Jam Mulai','startTime',c?.startTime||'','time')}${formField('Jam Selesai','endTime',c?.endTime||'','time')}${formField('Ruangan','room',c?.room||'')}${formField('Kapasitas','capacity',c?.capacity||'','number')}</div><div class="modalfoot"><button type="button" class="btn gray" onclick="closeModal()">Batal</button><button class="btn green">Simpan</button></div></form>`);document.getElementById('classForm').onsubmit=async e=>{e.preventDefault();try{let o=Object.fromEntries(new FormData(e.target));o.id=c?.id||uid();o.createdAt=c?.createdAt||new Date().toISOString();await put('classes',o);closeModal();toast(c?'Kelas berhasil diperbarui di Supabase.':'Kelas berhasil ditambahkan ke Supabase.');await renderClasses()}catch(err){console.error('[Kelas] Simpan gagal',err);toast('Gagal menyimpan kelas: '+err.message)}}}
+async function renderSchedule(){
+  let cs=await all('classes');
+  schedule.innerHTML=`<div class="title"><div><h1>Jadwal</h1><div class="subtitle">Jadwal kelas bimbel</div></div><button class="btn green" onclick="openClass()">+ Tambah Jadwal/Kelas</button></div><div class="cards">${['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'].map(d=>`<div class="card"><b>${d}</b>${cs.filter(c=>c.day===d).map(c=>`<div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="font-weight:700">${esc(c.startTime)}–${esc(c.endTime)}</div><b>${esc(c.className)}</b><br><small>${esc(c.subject)} ${c.level?'• '+esc(c.level):''}</small><br><small>👤 ${esc(c.teacher||'-')} • 🚪 ${esc(c.room||'-')}</small><div style="margin-top:8px;display:flex;gap:6px"><button class="btn small light" onclick="openClass('${c.id}')">Edit</button><button class="btn small red" onclick="deleteClass('${c.id}').then(()=>renderSchedule())">Hapus</button></div></div>`).join('')||'<small style="color:var(--muted)">Tidak ada jadwal</small>'}</div>`).join('')}</div>`
+}
+async function renderAttendance(){let [cs,ss,aa]=await Promise.all([all('classes'),all('students'),all('attendance')]);let cls=cs.find(c=>c.id===state.attendanceClass);let rows=cls?ss.filter(s=>s.status==='Aktif'):[];attendance.innerHTML=`<div class="title"><div><h1>Presensi / Absensi</h1><div class="subtitle">Catat kehadiran siswa per kelas</div></div></div><div class="toolbar"><input class="input" style="max-width:170px" type="date" value="${state.attendanceDate}" onchange="state.attendanceDate=this.value;renderAttendance()"><select class="select" style="max-width:260px" onchange="state.attendanceClass=this.value;renderAttendance()"><option value="">Pilih kelas...</option>${cs.map(c=>`<option value="${c.id}" ${c.id===state.attendanceClass?'selected':''}>${esc(c.className)} — ${esc(c.subject)}</option>`).join('')}</select>${cls?'<button class="btn green" onclick="markAllPresent()">Hadir Semua</button>':''}</div>${cls?`<div class="tablewrap"><table class="table"><thead><tr><th>Siswa</th><th>Hadir</th><th>Izin</th><th>Sakit</th><th>Alpa</th><th>Catatan</th></tr></thead><tbody>${rows.map(s=>{let a=aa.find(x=>x.date===state.attendanceDate&&x.classId===cls.id&&x.studentId===s.id);return `<tr><td><b>${esc(s.name)}</b><br><small>${esc(s.studentCode)}</small></td>${['HADIR','IZIN','SAKIT','ALPA'].map(st=>`<td><input type="radio" name="att-${s.id}" value="${st}" ${a?.status===st?'checked':''}></td>`).join('')}<td><input class="input" id="note-${s.id}" value="${esc(a?.notes||'')}" placeholder="Catatan"></td></tr>`}).join('')}</tbody></table></div><div style="margin-top:12px"><button class="btn green" onclick="saveAttendance('${cls.id}')">Simpan Absensi</button></div>`:'<div class="card empty">Pilih kelas untuk mulai absensi.</div>'}<div class="card" style="margin-top:14px"><b>Rekap Kehadiran Siswa</b><div style="overflow:auto;margin-top:10px"><table class="table"><thead><tr><th>Siswa</th><th>Total</th><th>Hadir</th><th>Izin</th><th>Sakit</th><th>Alpa</th><th>%</th></tr></thead><tbody>${ss.map(s=>{let x=aa.filter(a=>a.studentId===s.id),h=x.filter(a=>a.status==='HADIR').length;return `<tr><td>${esc(s.name)}</td><td>${x.length}</td><td>${h}</td><td>${x.filter(a=>a.status==='IZIN').length}</td><td>${x.filter(a=>a.status==='SAKIT').length}</td><td>${x.filter(a=>a.status==='ALPA').length}</td><td>${x.length?Math.round(h/x.length*100):0}%</td></tr>`}).join('')}</tbody></table></div></div>`}
+async function markAllPresent(){let cs=await all('classes'),ss=await all('students'),c=cs.find(x=>x.id===state.attendanceClass);if(!c)return;for(let s of ss.filter(s=>s.status==='Aktif')){let aa=await all('attendance'),old=aa.find(a=>a.date===state.attendanceDate&&a.classId===c.id&&a.studentId===s.id);await put('attendance',{id:old?.id||uid(),date:state.attendanceDate,classId:c.id,studentId:s.id,studentName:s.name,className:c.className,status:'HADIR',notes:old?.notes||''})}toast('Semua siswa ditandai hadir.');renderAttendance()}
+async function saveAttendance(cid){let ss=await all('students'),aa=await all('attendance'),rows=ss.filter(s=>s.status==='Aktif');for(let s of rows){let r=document.querySelector(`input[name="att-${s.id}"]:checked`);if(!r)continue;let old=aa.find(a=>a.date===state.attendanceDate&&a.classId===cid&&a.studentId===s.id);await put('attendance',{id:old?.id||uid(),date:state.attendanceDate,classId:cid,studentId:s.id,studentName:s.name,className:(await all('classes')).find(c=>c.id===cid)?.className||'',status:r.value,notes:document.getElementById('note-'+s.id)?.value||''})}toast('Absensi berhasil disimpan.');renderAttendance()}
+async function renderReports(){let ins=await all('invoices'),paid=ins.filter(i=>i.status==='LUNAS');let now=new Date(),month=now.toISOString().slice(0,7),mi=paid.filter(i=>i.date?.slice(0,7)===month),total=mi.reduce((a,i)=>a+i.total,0);let days=[];for(let d=6;d>=0;d--){let x=new Date();x.setDate(x.getDate()-d);let ds=x.toISOString().slice(0,10);days.push({d:ds,v:paid.filter(i=>i.date===ds).reduce((a,i)=>a+i.total,0)})}let max=Math.max(1,...days.map(x=>x.v));reports.innerHTML=`<div class="title"><div><h1>Laporan Keuangan</h1><div class="subtitle">Pendapatan hanya menghitung invoice LUNAS</div></div><button class="btn green" onclick="exportCSV()">📊 Export CSV</button></div><div class="cards"><div class="card stat"><div class="label">BULAN INI</div><div class="value" style="font-size:19px">${money(total)}</div></div><div class="card stat"><div class="label">INVOICE LUNAS</div><div class="value">${mi.length}</div></div><div class="card stat"><div class="label">CICILAN</div><div class="value">${ins.filter(i=>i.status==='CICILAN').length}</div></div><div class="card stat"><div class="label">BELUM LUNAS</div><div class="value">${ins.filter(i=>i.status==='BELUM LUNAS').length}</div></div></div><div class="grid2"><div class="card"><b>Pendapatan 7 Hari Terakhir</b><div class="chart">${days.map(x=>`<div class="bar" style="height:${Math.max(4,x.v/max*180)}px"><b>${x.v?money(x.v).replace('Rp',''):''}</b><span>${x.d.slice(8)}</span></div>`).join('')}</div></div><div class="card"><b>Rekap Metode Pembayaran</b><div style="margin-top:12px">${['Cash','Transfer','QRIS','Lainnya'].map(m=>{let v=paid.filter(i=>i.method===m).reduce((a,i)=>a+i.total,0);return `<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)"><span>${m}</span><b>${money(v)}</b></div>`}).join('')}</div></div></div><div class="card" style="margin-top:14px"><b>Rekap Mata Pelajaran</b><table class="table" style="margin-top:10px;min-width:0"><thead><tr><th>Mata Pelajaran</th><th>Pendapatan</th><th>Invoice</th></tr></thead><tbody>${subjects.map(s=>{let x=mi.filter(i=>i.subject===s);return `<tr><td>${s}</td><td>${money(x.reduce((a,i)=>a+i.total,0))}</td><td>${x.length}</td></tr>`}).join('')}</tbody></table></div>`}
+async function exportCSV(){let ins=await all('invoices');let h=['Tanggal','Nomor Invoice','Nama Siswa','ID Siswa','Mata Pelajaran','Level','Jenis Pembayaran','Periode','Subtotal','Diskon','Total','Dibayar','Sisa','Metode','Status'];let rows=ins.map(i=>[i.date,i.invoiceNumber,i.studentName,i.studentId,i.subject,i.level||'',i.paymentType,i.periodStart||i.month||'',i.subtotal,i.discount,i.total,i.amountPaid,i.remainingAmount,i.method,i.status]);downloadBlob([h,...rows].map(r=>r.map(x=>`"${String(x??'').replace(/"/g,'""')}"`).join(',')).join('\\n'),'Laporan_Keuangan.csv','text/csv;charset=utf-8');toast('CSV berhasil dibuat.')}
+function downloadBlob(data,name,type){let b=new Blob([data],{type}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+async function renderNotes(){let [ns,ss]=await Promise.all([all('notes'),all('students')]);notes.innerHTML=`<div class="title"><div><h1>Catatan Perkembangan</h1></div><button class="btn green" onclick="openNote()">+ Catatan</button></div><div class="grid2">${ns.sort((a,b)=>b.date.localeCompare(a.date)).map(n=>`<div class="card"><small>${esc(n.date)}</small><h3 style="margin:6px 0">${esc(n.title)}</h3><b>${esc(ss.find(s=>s.id===n.studentId)?.name||'-')}</b><p>${esc(n.content)}</p></div>`).join('')||'<div class="card empty">Belum ada catatan.</div>'}</div>`}
+async function openNote(){let ss=await all('students');modal('Tambah Catatan',`<form id="noteForm"><div class="formgrid"><div class="field full"><label>Siswa</label><select class="select" name="studentId">${ss.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join('')}</select></div>${formField('Tanggal','date',today(),'date')}${formField('Judul','title','Perkembangan Belajar')}<div class="field full"><label>Isi Catatan</label><textarea class="textarea" name="content" rows="6"></textarea></div></div><div class="modalfoot"><button type="button" class="btn gray" onclick="closeModal()">Batal</button><button class="btn green">Simpan</button></div></form>`);document.getElementById('noteForm').onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));o.id=uid();await put('notes',o);closeModal();toast('Catatan disimpan.');renderNotes()}}
+async function renderPaymentSettings(){
+  const cfg=await setting('paymentMethods',{bankName:'',accountNumber:'',accountName:'',qris:'',instructions:''});
+  paymentSettings.innerHTML=`<div class="title"><div><h1>Pengaturan Pembayaran</h1><div class="subtitle">Atur rekening transfer dan QRIS yang akan ditampilkan kepada siswa/orang tua.</div></div></div>
+  <div class="card"><h3>🏦 Transfer Bank</h3><div class="grid2">
+    ${formField('Nama Bank','bankName',cfg.bankName||'')}
+    ${formField('Nomor Rekening','accountNumber',cfg.accountNumber||'')}
+    ${formField('Atas Nama','accountName',cfg.accountName||'')}
+  </div></div>
+  <div class="card" style="margin-top:14px"><h3>📱 QRIS</h3>
+    <div class="field"><label>Gambar QRIS</label><input class="input" id="paymentQrisFile" type="file" accept="image/*"></div>
+    <div id="paymentQrisPreview" style="margin-top:12px">${cfg.qris?`<img src="${cfg.qris}" alt="QRIS" style="max-width:280px;max-height:280px;object-fit:contain;border:1px solid var(--line);border-radius:12px;padding:8px">`:'<small style="color:var(--muted)">Belum ada gambar QRIS.</small>'}</div>
+    <small style="display:block;margin-top:8px;color:var(--muted)">Untuk keamanan dan kemudahan, QRIS disimpan sebagai bagian dari pengaturan aplikasi. Gunakan gambar yang jelas dan sebaiknya tidak lebih dari 1 MB.</small>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>📝 Instruksi Pembayaran</h3>
+    <textarea class="textarea" id="paymentInstructions" rows="5" placeholder="Contoh: Setelah transfer/QRIS, kirim bukti pembayaran kepada admin.">${esc(cfg.instructions||'')}</textarea>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn green" id="savePaymentSettingsBtn">💾 Simpan Pengaturan Pembayaran</button></div>`;
+
+  const file=document.getElementById('paymentQrisFile');
+  const preview=document.getElementById('paymentQrisPreview');
+  let qris=cfg.qris||'';
+  file.onchange=()=>{
+    const f=file.files?.[0];
+    if(!f)return;
+    if(!f.type.startsWith('image/')){toast('File QRIS harus berupa gambar.');file.value='';return;}
+    if(f.size>1024*1024){toast('Ukuran gambar QRIS maksimal 1 MB.');file.value='';return;}
+    const reader=new FileReader();
+    reader.onload=()=>{qris=reader.result;preview.innerHTML=`<img src="${qris}" alt="QRIS" style="max-width:280px;max-height:280px;object-fit:contain;border:1px solid var(--line);border-radius:12px;padding:8px">`};
+    reader.readAsDataURL(f);
+  };
+
+  document.getElementById('savePaymentSettingsBtn').onclick=async()=>{
+    try{
+      const data={
+        bankName:document.querySelector('#paymentSettings [name="bankName"]').value.trim(),
+        accountNumber:document.querySelector('#paymentSettings [name="accountNumber"]').value.trim(),
+        accountName:document.querySelector('#paymentSettings [name="accountName"]').value.trim(),
+        qris:qris||'',
+        instructions:document.getElementById('paymentInstructions').value.trim()
+      };
+      await setSetting('paymentMethods',data);
+      toast('Pengaturan pembayaran berhasil disimpan ke Supabase.');
+    }catch(e){
+      console.error(e);
+      toast('Gagal menyimpan pengaturan pembayaran: '+e.message);
+    }
+  };
+}
+async function renderSettings(){let biz=await setting('businessName','Bengkel Bahasa'),tag=await setting('tagline','Learning & Administration'),address=await setting('address',''),phone=await setting('phone',''),wa=await setting('whatsapp',''),email=await setting('email',''),owner=await setting('ownerName',''),foot=await setting('invoiceFooter','Terima kasih telah belajar bersama Bengkel Bahasa.'),rates=(await all('settings')).find(x=>x.id==='rates')?.value||{};settings.innerHTML=`<div class="title"><div><h1>Pengaturan</h1><div class="subtitle">Identitas bimbel dan tarif</div></div></div><div class="card"><h3>Identitas Bimbel</h3><form id="settingForm"><div class="setting-row">${formField('Nama Bimbel','businessName',biz)}${formField('Tagline','tagline',tag)}${formField('Alamat','address',address)}${formField('Nomor HP','phone',phone)}${formField('WhatsApp','whatsapp',wa)}${formField('Email','email',email,'email')}${formField('Nama Pengelola','ownerName',owner)}<div class="field"><label>Footer Invoice</label><textarea class="textarea" name="invoiceFooter">${esc(foot)}</textarea></div></div><div class="modalfoot"><button class="btn green">Simpan Identitas</button></div></form></div><div class="card" style="margin-top:14px"><h3>Tarif Standar</h3><div class="tablewrap"><table class="table" style="min-width:600px"><thead><tr><th>Program</th><th>Per Meeting</th><th>Per Minggu</th><th>Per Bulan</th></tr></thead><tbody>${subjects.flatMap(s=>s==='Bahasa Inggris'?levels.map(l=>rateRow(s,l,rates)):rateRow(s,'',rates)).join('')}</tbody></table></div><div class="modalfoot"><button class="btn green" onclick="saveRates()">Simpan Tarif</button></div></div><div class="card" style="margin-top:14px"><b>Tema</b><p style="color:var(--muted);font-size:13px">Tampilan dibuat ringan dengan warna sage green dan navy.</p><button class="btn gray" onclick="document.body.classList.toggle('dark')">🌙 Mode</button></div>`;document.getElementById('settingForm').onsubmit=async e=>{e.preventDefault();let o=Object.fromEntries(new FormData(e.target));for(let k in o)await setSetting(k,o[k]);toast('Pengaturan disimpan.');renderSettings()}}
+function rateRow(s,l,r){return `<tr><td>${esc(s)} ${l?'• '+esc(l):''}</td>${paymentTypes.map(t=>`<td><input class="input rate" data-key="${esc(s+'|'+l+'|'+t)}" type="number" value="${r[s+'|'+l+'|'+t]??''}" min="0" step="1" placeholder="Rp"></td>`).join('')}</tr>`}
+async function saveRates(){try{let r={};document.querySelectorAll('.rate').forEach(x=>{r[x.dataset.key]=x.value===''?0:Number(x.value)});await setSetting('rates',r);toast('Tarif berhasil disimpan ke Supabase.');await renderSettings()}catch(e){console.error(e);toast('Gagal menyimpan tarif: '+e.message)}}
+async function renderBackup(){backup.innerHTML=`<div class="title"><div><h1>Backup & Restore</h1><div class="subtitle">Simpan seluruh data aplikasi ke perangkat</div></div></div><div class="grid2"><div class="card"><h3>💾 Backup Data</h3><p>Semua data siswa, kelas, jadwal, absensi, pembayaran, invoice, catatan, tarif dan pengaturan akan disimpan.</p><button class="btn green" onclick="backupData()">Download Backup JSON</button></div><div class="card"><h3>📂 Restore Data</h3><p>Pilih file backup JSON yang pernah dibuat.</p><input class="input" type="file" accept=".json,application/json" onchange="restoreData(this.files[0])"><p class="danger" style="font-size:12px">Restore dapat menambahkan/mengganti data dengan ID yang sama. Backup dulu sebelum restore.</p></div></div><div class="card" style="margin-top:14px"><h3>🧹 Hapus Semua Data</h3><p>Tindakan ini tidak dapat dibatalkan. Backup terlebih dahulu.</p><button class="btn red" onclick="clearAll()">Hapus Semua Data</button></div>`}
+async function backupData(){let data={version:1,date:new Date().toISOString(),data:{}};for(let s of stores)data.data[s]=await all(s);downloadBlob(JSON.stringify(data,null,2),'Backup_Bengkel_Bahasa_'+today()+'.json','application/json');toast('Backup berhasil dibuat.')}
+async function restoreData(file){if(!file)return;if(!confirm('Restore data dari file ini?'))return;try{let data=JSON.parse(await file.text());for(let s of stores)for(let o of (data.data?.[s]||[]))await put(s,o);toast('Restore berhasil.');go('home')}catch(e){toast('File backup tidak valid.')}}
+async function clearAll(){
+  if(!confirm('Yakin menghapus SEMUA data?'))return;
+  if(!confirm('Tindakan ini tidak dapat dibatalkan. Lanjutkan?'))return;
+  try{
+    for(const s of stores){
+      const rows=await all(s);
+      for(const row of rows) if(row.id!=null) await del(s,row.id);
+    }
+    toast('Semua data berhasil dihapus.');
+    go('home');
+  }catch(e){
+    console.error(e);
+    toast('Gagal menghapus semua data: '+e.message);
+  }
+}
+async function init(){await openDB();await supabaseHealthCheck();let biz=await setting('businessName');if(!biz)biz='Bengkel Bahasa';let tagline=await setting('tagline','Learning & Administration');go('home');setInterval(()=>{if(document.getElementById('home').classList.contains('active'))renderHome()},60000)}
+init().catch(err=>{
+  console.error(err);
+  toast("Aplikasi gagal terhubung ke Supabase. Periksa Console (F12).");
+});
+</script>
+</body>
+</html>
